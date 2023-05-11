@@ -42,13 +42,22 @@ void GPIO_Init_Pin_Input (u8 port_id,u8 pin_id,u8 pin_mode){
 	switch(port_id)
 			{
 					case GPIO_PORTA:
-						wrt_bit(GPIOA->IDR,pin_id,pin_mode);
+					GPIOA->MODER   &=~(0b11<<(pin_id*2));
+						//PIN SPEED BY MASKING
+					GPIOA->PUPDR &=~(0b11<<(pin_id*2));
+					GPIOA->PUPDR |=(pin_mode<<(pin_id*2));
 					break;
 					case GPIO_PORTB:
-						wrt_bit(GPIOA->IDR,pin_id,pin_mode);
+						GPIOB->MODER   &=~(0b11<<(pin_id*2));
+							//PIN SPEED BY MASKING
+						GPIOB->PUPDR &=~(0b11<<(pin_id*2));
+						GPIOB->PUPDR |=(pin_mode<<(pin_id*2));
 					break;
 					case GPIO_PORTC:
-						wrt_bit(GPIOA->IDR,pin_id,pin_mode);
+						GPIOC->MODER   &=~(0b11<<(pin_id*2));
+							//PIN SPEED BY MASKING
+						GPIOC->PUPDR &=~(0b11<<(pin_id*2));
+						GPIOC->PUPDR |=(pin_mode<<(pin_id*2));
 					break;
 				}
 			}
@@ -71,13 +80,13 @@ u8 GPIO_Get_Pin_Value(u8 port_id,u8 pin_id){
 	switch(port_id)
 			{
 					case GPIO_PORTA:
-
+						val = get_bit(GPIOA->IDR, pin_id);
 					break;
 					case GPIO_PORTB:
-
+						val = get_bit(GPIOA->IDR, pin_id);
 					break;
 					case GPIO_PORTC:
-
+						val = get_bit(GPIOA->IDR, pin_id);
 					break;
 				}
 	return val;

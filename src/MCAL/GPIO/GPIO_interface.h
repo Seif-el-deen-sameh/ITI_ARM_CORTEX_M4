@@ -25,6 +25,10 @@
 #define GPIO_OUTPUT_HIGH	1
 #define GPIO_OUTPUT_LOW		0
 /*turn to enums*/
+#define GPIO_INPUT_NONE		0
+#define GPIO_INPUT_PULLUP	1
+#define GPIO_INPUT_PULLDOWN	2
+/*turn to enums*/
 void GPIO_Init_Pin_Output(u8 port_id,u8 pin_id,u8 pin_type,u8 pin_speed);
 void GPIO_Init_Pin_Input (u8 port_id,u8 pin_id,u8 pin_mode);
 void GPIO_Set_Pin_Value	 (u8 port_id,u8 pin_id,u8 pin_value);
