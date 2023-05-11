@@ -4,8 +4,8 @@
  *  Created on: May 6, 2023
  *      Author: ss210
  */
-#include "bit_math.h"
-#include "std_types.h"
+#include "LIB/bit_math.h"
+#include "LIB/std_types.h"
 #include "RCC_config.h"
 #include "RCC_interface.h"
 #include "RCC_private.h"
