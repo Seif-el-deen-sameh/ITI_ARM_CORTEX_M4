@@ -42,6 +42,27 @@ void RCC_disable_preihreal_clock(u8 bus_id,u8 peripheral_id){
 		break;
 	}
 }
-void RCC_set_system_clock(void){
-
+void RCC_set_system_clock(System_clock_source source){
+	switch(source){
+	case HSI:
+		set_bit(RCC_CR,0);
+		clr_bit(RCC_CFGR,0);
+		clr_bit(RCC_CFGR,1);
+		break;
+	case HSE_RC:
+		set_bit(RCC_CR,16);
+		set_bit(RCC_CR,18);
+		set_bit(RCC_CFGR,0);
+		clr_bit(RCC_CFGR,1);
+		break;
+	case HSE_CRYSTAL:
+		set_bit(RCC_CR,16);
+		clr_bit(RCC_CR,18);
+		set_bit(RCC_CFGR,0);
+		clr_bit(RCC_CFGR,1);
+		break;
+	case PLL:
+		/**/
+		break;
+	}
 }

@@ -22,4 +22,11 @@
 #define	RCC_SSCGR			*((volatile u32*)(0x40023880))
 #define	RCC_PLLI2SCFGR		*((volatile u32*)(0x40023884))
 #define	RCC_DCKCFGR			*((volatile u32*)(0x4002388C))
+
+typedef enum{
+	HSI,
+	HSE_RC,
+	HSE_CRYSTAL,
+	PLL
+}System_clock_source;
 #endif
