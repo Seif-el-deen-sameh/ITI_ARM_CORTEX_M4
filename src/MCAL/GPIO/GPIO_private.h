@@ -7,8 +7,8 @@
 
 #ifndef MCAL_GPIO_GPIO_PRIVATE_H_
 #define MCAL_GPIO_GPIO_PRIVATE_H_
-#include "LIB/bit_math.h"
-#include "LIB/std_types.h"
+#include "../../LIB/bit_math.h"
+#include "../../LIB/std_types.h"
 
 #define GPIOA_START	(0x40020000)
 #define GPIOB_START	(0x40020400)

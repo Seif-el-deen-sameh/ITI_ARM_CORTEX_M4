@@ -7,15 +7,15 @@
 
 #ifndef MCAL_GPIO_GPIO_INTERFACE_H_
 #define MCAL_GPIO_GPIO_INTERFACE_H_
-#include "LIB/bit_math.h"
-#include "LIB/std_types.h"
+#include "../../LIB/bit_math.h"
+#include "../../LIB/std_types.h"
 /*turn to enums*/
 #define GPIO_PORTA	1
 #define GPIO_PORTB	2
 #define GPIO_PORTC	3
 /*turn to enums*/
-#define GPIO_PUSH_PULL	1
-#define GPIO_OPEN_DRAIN	2
+#define GPIO_PUSH_PULL	0
+#define GPIO_OPEN_DRAIN	1
 /*turn to enums*/
 #define GPIO_SPEED_LOW			1
 #define GPIO_SPEED_MED			2

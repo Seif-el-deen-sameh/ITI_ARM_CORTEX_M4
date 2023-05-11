@@ -4,8 +4,8 @@
  *  Created on: May 11, 2023
  *      Author: ss210
  */
-#include "LIB/bit_math.h"
-#include "LIB/std_types.h"
+#include "../../LIB/bit_math.h"
+#include "../../LIB/std_types.h"
 #include "GPIO_config.h"
 #include "GPIO_interface.h"
 #include "GPIO_private.h"
@@ -37,42 +37,36 @@ void GPIO_Init_Pin_Output(u8 port_id,u8 pin_id,u8 pin_type,u8 pin_speed){
 				wrt_bit(GPIOC->OTYPER,pin_id,pin_type);
 				break;
 			}
-			break;
 		}
-}
 void GPIO_Init_Pin_Input (u8 port_id,u8 pin_id,u8 pin_mode){
 	switch(port_id)
 			{
 					case GPIO_PORTA:
-
+						wrt_bit(GPIOA->IDR,pin_id,pin_mode);
 					break;
 					case GPIO_PORTB:
-
+						wrt_bit(GPIOA->IDR,pin_id,pin_mode);
 					break;
 					case GPIO_PORTC:
-
+						wrt_bit(GPIOA->IDR,pin_id,pin_mode);
 					break;
 				}
-				break;
 			}
-}
 void GPIO_Set_Pin_Value	 (u8 port_id,u8 pin_id,u8 pin_value){
 	switch(port_id)
 			{
 					case GPIO_PORTA:
-
+						wrt_bit(GPIOA->ODR,pin_id,pin_value);
 					break;
 					case GPIO_PORTB:
-
+						wrt_bit(GPIOB->ODR,pin_id,pin_value);
 					break;
 					case GPIO_PORTC:
-
+						wrt_bit(GPIOC->ODR,pin_id,pin_value);
 					break;
 				}
-				break;
 			}
-}
-u8 GPIO_Get_Pin_Value 	 (u8 port_id,u8 pin_id){
+u8 GPIO_Get_Pin_Value(u8 port_id,u8 pin_id){
 	u8 val = 0;
 	switch(port_id)
 			{
@@ -86,7 +80,5 @@ u8 GPIO_Get_Pin_Value 	 (u8 port_id,u8 pin_id){
 
 					break;
 				}
-				break;
+	return val;
 			}
-		return val;
-}
