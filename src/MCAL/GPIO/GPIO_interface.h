@@ -30,7 +30,8 @@
 #define GPIO_INPUT_PULLDOWN	2
 /*turn to enums*/
 void GPIO_Init_Pin_Output(u8 port_id,u8 pin_id,u8 pin_type,u8 pin_speed);
-void GPIO_Init_Pin_Input (u8 port_id,u8 pin_id,u8 pin_mode);
-void GPIO_Set_Pin_Value	 (u8 port_id,u8 pin_id,u8 pin_value);
-u8 GPIO_Get_Pin_Value 	 (u8 port_id,u8 pin_id);
+void GPIO_Init_Pin_Input(u8 port_id,u8 pin_id,u8 pin_mode);
+void GPIO_Set_Pin_Value(u8 port_id,u8 pin_id,u8 pin_value);
+u8 GPIO_Get_Pin_Value(u8 port_id,u8 pin_id);
+void GPIO_Set_pin_Alt_function(u8 port_id,u8 pin_id);
 #endif /* MCAL_GPIO_GPIO_INTERFACE_H_ */

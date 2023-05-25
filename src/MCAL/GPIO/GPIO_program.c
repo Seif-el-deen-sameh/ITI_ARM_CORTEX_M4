@@ -91,3 +91,18 @@ u8 GPIO_Get_Pin_Value(u8 port_id,u8 pin_id){
 				}
 	return val;
 			}
+void GPIO_Set_pin_Alt_function(u8 port_id,u8 pin_id){
+	switch(port_id)
+				{
+						case GPIO_PORTA:
+
+						break;
+						case GPIO_PORTB:
+
+						break;
+						case GPIO_PORTC:
+
+						break;
+					}
+				}
+}
