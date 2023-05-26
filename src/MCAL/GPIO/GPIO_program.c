@@ -91,17 +91,64 @@ u8 GPIO_Get_Pin_Value(u8 port_id,u8 pin_id){
 				}
 	return val;
 			}
-void GPIO_Set_pin_Alt_function(u8 port_id,u8 pin_id){
+void GPIO_Set_Pin_Alt_Function(u8 port_id,u8 pin_id,u8 alt_function){
 	switch(port_id)
 				{
 						case GPIO_PORTA:
-
+							if(pin_id == 13 || pin_id == 14 || pin_id == 15)
+												{
+													/*Do Nothing*/
+												}
+												else
+												{
+													if (pin_id>=0 && pin_id<=7) //Check if the Pin in AFRL OR AFRH
+													{
+														/*Set Configuration of Pin to the Desired Alternative Function using (Bit Masking)*/
+														GPIOA->AFRL &= (~(0b1111 << (pin_id*4))); 					//Clear the 4 Bits Responsible for Configuration
+														GPIOA->AFRL |= (alt_function << (pin_id*4));	//Set AF as Configured
+													}
+													else
+													{
+														/*Set Configuration of Pin to the Desired Alternative Function using (Bit Masking)*/
+														GPIOA->AFRH &= (~(0b1111 << (pin_id*4))); 					//Clear the 4 Bits Responsible for Configuration
+														GPIOA->AFRH |= (alt_function << (pin_id*4));	//Set AF as Configured
+													}
+												}
 						break;
 						case GPIO_PORTB:
-
+							if(pin_id == 2 || pin_id == 3 || pin_id == 4)
+												{
+													/*Do Nothing*/
+												}
+												else
+												{
+													if (pin_id>=0 && pin_id<=7) //Check if the Pin in AFRL OR AFRH
+													{
+														/*Set Configuration of Pin to the Desired Alternative Function using (Bit Masking)*/
+														GPIOB->AFRL &= (~(0b1111 << (pin_id*4))); 					//Clear the 4 Bits Responsible for Configuration
+														GPIOB->AFRL |= (alt_function << (pin_id*4));	//Set AF as Configured
+													}
+													else
+													{
+														/*Set Configuration of Pin to the Desired Alternative Function using (Bit Masking)*/
+														GPIOB->AFRH &= (~(0b1111 << (pin_id*4))); 					//Clear the 4 Bits Responsible for Configuration
+														GPIOB->AFRH |= (alt_function << (pin_id*4));	//Set AF as Configured
+													}
+												}
 						break;
 						case GPIO_PORTC:
-
+							if (pin_id>=0 && pin_id<=7) //Check if the Pin in AFRL OR AFRH
+											{
+												/*Set Configuration of Pin to the Desired Alternative Function using (Bit Masking)*/
+												GPIOC->AFRL &= (~(0b1111 << (pin_id*4))); 					//Clear the 4 Bits Responsible for Configuration
+												GPIOC->AFRL |= (alt_function << (pin_id*4));	//Set AF as Configured
+											}
+											else
+											{
+												/*Set Configuration of Pin to the Desired Alternative Function using (Bit Masking)*/
+												GPIOC->AFRH &= (~(0b1111 << (pin_id*4))); 					//Clear the 4 Bits Responsible for Configuration
+												GPIOC->AFRH |= (alt_function << (pin_id*4));	//Set AF as Configured
+											}
 						break;
 					}
 				}
